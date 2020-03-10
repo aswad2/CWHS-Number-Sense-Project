@@ -1,4 +1,3 @@
-	
 import java.io.FileInputStream;
 
 import javafx.application.Application;
@@ -86,7 +85,6 @@ public class CyWoodsNumberSense extends Application {
 		primary.setScene(scene);
 		primary.setFullScreen(true);
 		primary.show();
-		//checking to see if i changed file in GitHub
 	}
 
 	public static void main(String[] args) {

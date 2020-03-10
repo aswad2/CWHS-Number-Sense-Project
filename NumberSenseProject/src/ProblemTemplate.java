@@ -1,3 +1,4 @@
+
 public abstract class ProblemTemplate {
 	public abstract Problem genProblem();
 }
