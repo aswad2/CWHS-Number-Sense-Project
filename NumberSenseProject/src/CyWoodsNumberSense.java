@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -25,15 +27,18 @@ public class CyWoodsNumberSense extends Application {
 		VBox vbox = new VBox();
 		vbox.getChildren().add(image);
 
-		Button multiplyingBy11s = new Button("Multiplying by 11");
 		ProblemManager pm = new ProblemManager(primary);
-		pm.loadNewProblemTemplates(new MultiplyingBy11());
-		multiplyingBy11s.setOnMousePressed(event -> {
-			System.out.println("Pressed");
-			pm.loadNewProblem();
-		});
-
-		vbox.getChildren().add(multiplyingBy11s);
+		ProblemTemplate[] pts = {new MultiplyingBy11()};
+		MenuButton mb = new MenuButton("Select what you want to work on");
+		for (ProblemTemplate pt : pts) {
+			MenuItem mi = new MenuItem(pt.getName());
+			mi.setOnAction(e -> {
+				pm.loadNewProblemTemplates(pt);
+				pm.loadNewProblem();
+			});
+			mb.getItems().add(mi);
+		}
+		vbox.getChildren().add(mb);
 		Scene scene = new Scene(vbox);
 		primary.setScene(scene);
 		primary.setFullScreen(true);

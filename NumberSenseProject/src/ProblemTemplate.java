@@ -1,5 +1,6 @@
 
 public abstract class ProblemTemplate {
+	public abstract String getName();
 	public abstract Problem genProblem();
 }
 class Problem {

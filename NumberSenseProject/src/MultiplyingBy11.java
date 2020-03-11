@@ -6,4 +6,7 @@ public class MultiplyingBy11 extends ProblemTemplate {
 		String ans = (random*11) + "";
 		return new Problem(question, ans);
 	}
+	public String getName() {
+		return "Multiplying by 11";
+	}
 }
