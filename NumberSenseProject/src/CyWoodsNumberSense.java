@@ -28,7 +28,7 @@ public class CyWoodsNumberSense extends Application {
 		vbox.getChildren().add(image);
 
 		ProblemManager pm = new ProblemManager(primary);
-		ProblemTemplate[] pts = {new MultiplyingBy11()};
+		ProblemTemplate[] pts = {new MultiplyingBy11(), new MultiplyingBy25()};
 		MenuButton mb = new MenuButton("Select what you want to work on");
 		for (ProblemTemplate pt : pts) {
 			MenuItem mi = new MenuItem(pt.getName());

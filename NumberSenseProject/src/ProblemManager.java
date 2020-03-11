@@ -37,7 +37,21 @@ public class ProblemManager {
 	}
 
 	public void onIncorrect(Problem p) {
-		System.out.println("Incorrect :( Correct answer was " + p.getAns() + ".");
+		TextField incorrectAnswer = new TextField("Incorrect. :( Correct answer was " + p.getAns());
+		incorrectAnswer.setFont(new Font("Arial", 40));
+		incorrectAnswer.setEditable(false);
+		Scene incorrect = new Scene(incorrectAnswer);
+		stage.setScene(incorrect);
+		stage.setWidth(500);
+		stage.setHeight(200);
+		new Thread(() -> {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Platform.runLater(this::loadNewProblem);
+		}).start();
 	}
 
 	public ProblemTemplate pickRandomTemplate() {
@@ -45,10 +59,12 @@ public class ProblemManager {
 	}
 
 	public void handleSubmit(Problem p, String ans) {
-		if (p.checkAnswer(ans))
+		if (p.checkAnswer(ans)) {
 			onCorrect();
-		else
+		}
+		else {
 			onIncorrect(p);
+		}
 	}
 
 	public void loadNewProblem() {
@@ -67,5 +83,6 @@ public class ProblemManager {
 		displayProblem.getChildren().add(ptext);
 		displayProblem.getChildren().add(atext);
 		stage.setScene(new Scene(displayProblem));
+		//set preferred width and height of new problem here
 	}
 }
