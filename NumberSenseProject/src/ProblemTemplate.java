@@ -9,7 +9,7 @@ class Problem {
 		ans = a;
 	}
 	public boolean checkAnswer(String a) {
-		return ans.equals("Answer: " + a);
+		return a.equals("Answer: " + ans);
 	}
 	public String getQuestion() {
 		return question;
