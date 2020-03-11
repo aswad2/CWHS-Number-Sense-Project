@@ -72,17 +72,16 @@ public class ProblemManager {
 		TextArea ptext = new TextArea(p.getQuestion());
 		ptext.setFont(new Font("Arial", 16));
 		ptext.setEditable(false);
-		
 		TextField atext = new TextField("Answer: ");
 		atext.setOnKeyPressed(e -> {
 			if (e.getCode() == KeyCode.ENTER)
 				handleSubmit(p, atext.getText());
 		});
-		
 		VBox displayProblem = new VBox();
 		displayProblem.getChildren().add(ptext);
 		displayProblem.getChildren().add(atext);
 		stage.setScene(new Scene(displayProblem));
+		atext.requestFocus();
 		//set preferred width and height of new problem here
 	}
 }

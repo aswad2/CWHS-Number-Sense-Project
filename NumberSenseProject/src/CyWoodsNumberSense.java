@@ -21,14 +21,12 @@ public class CyWoodsNumberSense extends Application {
 
 	public void start(Stage primary) throws Exception {
 		primary.setTitle("Number Sense Practice");
-
+		VBox vbox = new VBox();
 		FileInputStream titlePhoto = new FileInputStream("NumberSenseTitleScreen.png");
 		ImageView image = new ImageView(new Image(titlePhoto));
-		VBox vbox = new VBox();
 		vbox.getChildren().add(image);
-
 		ProblemManager pm = new ProblemManager(primary);
-		ProblemTemplate[] pts = {new MultiplyingBy11(), new MultiplyingBy25()};
+		ProblemTemplate[] pts = {new MultiplyingBy11(), new MultiplyingBy25(), new GCDandLCM()};
 		MenuButton mb = new MenuButton("Select what you want to work on");
 		for (ProblemTemplate pt : pts) {
 			MenuItem mi = new MenuItem(pt.getName());
